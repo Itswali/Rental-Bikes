@@ -1,18 +1,19 @@
 class RegistrationsController < ApplicationController
     def create
-        user = User.create!(
-            email: params["email"],
-            password: params["password"],
-            password_confirmation: params["password_confirmation"],
-        )
-        if user 
-            session[:user_id] = user.id
-            render json:
-             {status: :created,
-              user: user
-            }
-        else
-         render json: {status: 401}
-        end
+      user = User.new(registration_params)
+  
+      if user.save
+        session[:user_id] = user.id
+        render json: { message: 'User registered successfully' }
+      else
+        render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      end
     end
-end
+  
+    private
+  
+    def registration_params
+      params.permit(:email, :password, :password_confirmation)
+    end
+  end
+  

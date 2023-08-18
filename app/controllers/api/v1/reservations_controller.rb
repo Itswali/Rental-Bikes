@@ -1,7 +1,6 @@
 module Api
     module V1
         class ReservationsController < ApplicationController
-            protect_from_forgery with: :null_session
 
             def index
                 reservations = Reservation.all
