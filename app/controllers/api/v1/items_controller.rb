@@ -12,7 +12,7 @@ module Api
       end
 
       def create
-        item = Item.new(item_params)
+        item = current_user.items.build(item_params) # Build the item associated with the current user
         if item.save
           render json: ItemSerializer.new(item).serialized_json
         else
