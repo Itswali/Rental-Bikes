@@ -149,6 +149,9 @@ Add a calendar view that displays item availability, making it easier for users 
 **Payment Integration:**
 Integrate with a payment gateway to allow users to make payments for reservations directly through the API.
 
+**Mobile App Integration:**
+Building a companion mobile app to provide users with a convenient way to manage reservations and browse cars.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🤝 Contributing <a name="contributing"></a>
