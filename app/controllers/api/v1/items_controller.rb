@@ -12,11 +12,15 @@ module Api
       end
 
       def create
-        item = current_user.items.build(item_params) # Build the item associated with the current user
-        if item.save
-          render json: ItemSerializer.new(item).serialized_json
+        if current_user
+          item = current_user.items.build(item_params)
+          if item.save
+            render json: ItemSerializer.new(item).serialized_json
+          else
+            render json: { errors: item.errors.full_messages }, status: 422
+          end
         else
-          render json: { errors: item.errors.full_messages }, status: 422
+          render json: { errors: ['User not authenticated'] }, status: 401
         end
       end
 
