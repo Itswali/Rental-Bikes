@@ -1,6 +1,10 @@
 module Api
   module V1
     class ItemsController < ApplicationController
+      def current_user_authenticated?
+        user_signed_in?
+      end
+
       def index
         items = Item.all
         render json: ItemSerializer.new(items).serialized_json
@@ -12,15 +16,14 @@ module Api
       end
 
       def create
-        if current_user
-          item = current_user.items.build(item_params)
-          if item.save
-            render json: ItemSerializer.new(item).serialized_json
-          else
-            render json: { errors: item.errors.full_messages }, status: 422
-          end
+        item = Item.new(item_params)
+
+        item.user_id = current_user.id if current_user_authenticated?
+
+        if item.save
+          render json: ItemSerializer.new(item).serialized_json
         else
-          render json: { errors: ['User not authenticated'] }, status: 401
+          render json: { errors: item.errors.full_messages }, status: 422
         end
       end
 
