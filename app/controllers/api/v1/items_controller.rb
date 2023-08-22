@@ -1,10 +1,6 @@
 module Api
   module V1
     class ItemsController < ApplicationController
-      def current_user_authenticated?
-        user_signed_in?
-      end
-
       def index
         items = Item.all
         render json: ItemSerializer.new(items).serialized_json
@@ -17,8 +13,6 @@ module Api
 
       def create
         item = Item.new(item_params)
-
-        item.user_id = current_user.id if current_user_authenticated?
 
         if item.save
           render json: ItemSerializer.new(item).serialized_json
