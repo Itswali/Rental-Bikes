@@ -28,7 +28,6 @@ module Api
           head :no_content
         else
           render json: { errors: reservation.errors.full_messages }, status: 422
-
         end
       end
 

@@ -27,6 +27,7 @@ node_modules/
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
+todo.md
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
