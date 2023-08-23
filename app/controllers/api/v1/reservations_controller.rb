@@ -2,7 +2,13 @@ module Api
   module V1
     class ReservationsController < ApplicationController
       def index
-        reservations = Reservation.all
+        # reservations = Reservation.all
+        reservations = Reservation.joins(:user, :item)
+                                        .order(created_at: :desc)
+                                        .select('users.email,
+                                                items.title AS car_name,
+                                                reservations.city,
+                                                reservations.id')
         render json: ReservationSerializer.new(reservations).serialized_json
       end
 
