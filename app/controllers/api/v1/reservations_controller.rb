@@ -6,10 +6,10 @@ module Api
           .where(users: { id: 1 })
           .order(created_at: :desc)
           .select('users.email,
-                                            items.title AS car_name,
-                                            reservations.city,
-                                            "Date",
-                                            reservations.id')
+            items.title AS car_name,
+            reservations.city,
+            "Date",
+            reservations.id')
         render json: @reservations_info, status: :ok
       end
 
