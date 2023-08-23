@@ -18,8 +18,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_054457) do
     t.string "title"
     t.string "image_url"
     t.string "description"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_18_054457) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "users"
   add_foreign_key "reservations", "items"
   add_foreign_key "reservations", "users"
 end
