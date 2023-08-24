@@ -23,7 +23,6 @@ default: &default
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-
 development:
   <<: *default
   database: Rental_Cars_development
