@@ -11,7 +11,8 @@ Rails.application.routes.draw do
        post '/login', to: 'sessions#create'
        post '/signup', to: 'registrations#create'
        delete '/logout', to: 'sessions#destroy'
-       get '/navigation', to: 'navigation_links'
+       get '/navigation_links', to: 'navigation#links' # New route for navigation links
+
      end
   end
 end
