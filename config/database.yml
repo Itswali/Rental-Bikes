@@ -17,12 +17,21 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+<<<<<<< HEAD
   host: localhost
   username: orbit
   password: sadiq
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+=======
+  username: orbit
+  password: sadiq
+  port: 5432
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+>>>>>>> item-list
 
 development:
   <<: *default

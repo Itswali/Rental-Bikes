@@ -13,6 +13,7 @@ module Api
 
       def create
         item = Item.new(item_params)
+
         if item.save
           render json: ItemSerializer.new(item).serialized_json
         else
