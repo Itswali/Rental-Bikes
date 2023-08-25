@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
- 
 
   # Defines the root path route ("/")
     namespace :api do
@@ -13,5 +12,4 @@ Rails.application.routes.draw do
        delete '/logout', to: 'sessions#destroy'
        get '/navigation_links', to: 'navigation#links' # New route for navigation links
      end
-  end
 end
