@@ -2,8 +2,16 @@ module Api
   module V1
     class ReservationsController < ApplicationController
       def index
-        reservations = Reservation.all
-        render json: ReservationSerializer.new(reservations).serialized_json
+        @reservations_info = Reservation.joins(:user, :item)
+          .where(users: { id: 1 })
+          .order(created_at: :desc)
+          .select('users.email,
+            items.title AS car_name,
+            reservations.city,
+            "Date",
+            items.image_url AS image,
+            reservations.id')
+        render json: @reservations_info, status: :ok
       end
 
       def create
@@ -21,7 +29,6 @@ module Api
           head :no_content
         else
           render json: { errors: reservation.errors.full_messages }, status: 422
-
         end
       end
 
