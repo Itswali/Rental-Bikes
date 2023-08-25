@@ -4,9 +4,10 @@ module Api
       def links
         navigation_links = [
           # { name: 'Cars', link: '/cars' },
-          { name: 'Reserve', link: '/reserve' },
-          { name: 'My Reservations', link: '/my_reservations' },
-          { name: 'Add Item', link: '/add_item' }
+          { name: 'Reserve', link: '/home/reserve' },
+          { name: 'My Reservations', link: '/home/my_reservations' },
+          { name: 'Add Item', link: '/home/add_item' },
+          { name: 'Sign Out', link: '/add_item' }
           # { name: 'Delete Item', link: '/delete_item' }
         ]
         render json: navigation_links
