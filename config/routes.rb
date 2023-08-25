@@ -12,4 +12,5 @@ Rails.application.routes.draw do
        delete '/logout', to: 'sessions#destroy'
        get '/navigation_links', to: 'navigation#links' # New route for navigation links
      end
+  end
 end

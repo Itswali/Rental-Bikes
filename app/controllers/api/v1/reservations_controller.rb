@@ -3,7 +3,7 @@ module Api
     class ReservationsController < ApplicationController
       def index
         @reservations_info = Reservation.joins(:user, :item)
-          .where(users: { id: 1 })
+          .where(users: { id: 24 })
           .order(created_at: :desc)
           .select('users.email,
             items.title AS car_name,
