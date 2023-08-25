@@ -9,6 +9,7 @@ module Api
             items.title AS car_name,
             reservations.city,
             "Date",
+            items.image_url AS image,
             reservations.id')
         render json: @reservations_info, status: :ok
       end

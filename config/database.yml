@@ -18,8 +18,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: orbit
-  password: sadiq
+  # username: orbit
+  # password: sadiq
+  username: kwesi
+  password: 'Micro*12345'
   port: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
