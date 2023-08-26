@@ -2,7 +2,7 @@ module Api
   module V1
     class ReservationsController < ApplicationController
       def index
-        user_id = params[:user_id] 
+        user_id = params[:user_id]
         @reservations_info = Reservation.joins(:user, :item)
           .where(users: { id: user_id })
           .order(created_at: :desc)
