@@ -1,6 +1,7 @@
 module Api
   module V1
     class ItemsController < ApplicationController
+      # user_id = params[:user_id]
       def index
         items = Item.all
         render json: ItemSerializer.new(items).serialized_json
@@ -12,6 +13,7 @@ module Api
       end
 
       def create
+        params[:user_id]
         item = Item.new(item_params)
 
         if item.save

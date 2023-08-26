@@ -2,13 +2,15 @@ module Api
   module V1
     class ReservationsController < ApplicationController
       def index
+        user_id = params[:user_id]
         @reservations_info = Reservation.joins(:user, :item)
-          .where(users: { id: 24 })
+          .where(users: { id: user_id })
           .order(created_at: :desc)
           .select('users.email,
             items.title AS car_name,
             reservations.city,
             "Date",
+            items.image_url AS image,
             reservations.id')
         render json: @reservations_info, status: :ok
       end
