@@ -1,7 +1,6 @@
 module Api
   module V1
     class ItemsController < ApplicationController
-      # user_id = params[:user_id]
       def index
         items = Item.all
         render json: ItemSerializer.new(items).serialized_json
@@ -33,8 +32,11 @@ module Api
       end
 
       def destroy
-        item = Item.find(params[:id])
-        if item.destroy
+        ids = params[:ids].split(',')
+        items = Item.where(id: ids)
+
+        # item = Item.find(params[:id])
+        if items.destroy_all
           head :no_content
         else
           render json: { errors: item.errors.full_messages }, status: 422
