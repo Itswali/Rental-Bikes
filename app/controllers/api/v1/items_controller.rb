@@ -32,10 +32,10 @@ module Api
       end
 
       def destroy
-        ids = params[:ids].split(',') 
+        ids = params[:ids].split(',')
         items = Item.where(id: ids)
-   
-         # item = Item.find(params[:id])
+
+        # item = Item.find(params[:id])
         if items.destroy_all
           head :no_content
         else
