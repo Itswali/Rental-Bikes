@@ -1,7 +1,6 @@
 module Api
   module V1
     class ItemsController < ApplicationController
-      # user_id = params[:user_id]
       def index
         items = Item.all
         render json: ItemSerializer.new(items).serialized_json
