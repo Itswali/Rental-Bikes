@@ -33,7 +33,6 @@ module Api
       end
 
       def destroy
-        puts "Parameters: #{params.inspect}"
         ids = params[:ids].split(',') 
         items = Item.where(id: ids)
    
