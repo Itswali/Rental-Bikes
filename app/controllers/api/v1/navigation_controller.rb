@@ -7,9 +7,9 @@ module Api
           { name: 'Home', link: '/home' },
           { name: 'Reserve', link: '/home/reserve' },
           { name: 'My Reservations', link: '/home/my_reservations' },
-          { name: 'Add Item', link: '/home/add_item' },
-          { name: 'Sign Out', link: '/add_item' }
-          # { name: 'Delete Item', link: '/delete_item' }
+          { name: 'Add Car', link: '/home/add_item' },
+          { name: 'Delete Car', link: '/delete_item' },
+          { name: 'Sign Out', link: '/logout' }
         ]
         render json: navigation_links
       end

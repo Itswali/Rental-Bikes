@@ -33,8 +33,12 @@ module Api
       end
 
       def destroy
-        item = Item.find(params[:id])
-        if item.destroy
+        puts "Parameters: #{params.inspect}"
+        ids = params[:ids].split(',') # Split the comma-separated list of IDs
+        items = Item.where(id: ids)
+   
+         # item = Item.find(params[:id])
+        if items.destroy_all
           head :no_content
         else
           render json: { errors: item.errors.full_messages }, status: 422
