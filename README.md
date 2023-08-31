@@ -120,7 +120,7 @@ rails server
 👤 **Samuel Obuobi Lartey**
 
 - GitHub [link](https://github.com/kwesiobuobi)
-- Twitter [link](https://twitter.com/)
+- Twitter [link](https://twitter.com/kwesi_obuobi)
 - LinkedIn [link](https://www.linkedin.com/in/kwesi-obuobi/)
 
 👤 **Riyaz Ahmed**
