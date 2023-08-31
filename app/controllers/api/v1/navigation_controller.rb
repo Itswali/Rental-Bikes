@@ -1,6 +1,7 @@
 module Api
   module V1
     class NavigationController < ApplicationController
+      # GET /api/v1/navigation/links: Retrieves an array of navigation links.
       def links
         navigation_links = [
           # { name: 'Cars', link: '/cars' },

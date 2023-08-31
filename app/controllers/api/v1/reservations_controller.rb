@@ -1,6 +1,7 @@
 module Api
   module V1
     class ReservationsController < ApplicationController
+      # GET /api/v1/reservations: Fetches all reservations.
       def index
         user_id = params[:user_id]
         @reservations_info = Reservation.joins(:user, :item)
@@ -15,6 +16,7 @@ module Api
         render json: @reservations_info, status: :ok
       end
 
+      # POST /api/v1/reservations: Creates a new reservation.
       def create
         reservation = Reservation.new(reservation_params)
         if reservation.save
@@ -24,6 +26,7 @@ module Api
         end
       end
 
+      # DELETE /api/v1/reservations/:id: Deletes a specific reservation by ID.
       def destroy
         reservation = Reservation.find(params[:id])
         if reservation.destroy
@@ -35,6 +38,7 @@ module Api
 
       private
 
+      # Defines the permitted parameters for creating a reservation.
       def reservation_params
         params.require(:reservation).permit(:Date, :city, :user_id, :item_id)
       end
