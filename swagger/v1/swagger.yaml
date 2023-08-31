@@ -1,0 +1,215 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/items":
+    get:
+      summary: list items
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create item
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                image_url:
+                  type: string
+                description:
+                  type: string
+              required:
+              - title
+              - image_url
+  "/api/v1/items/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show item
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update item
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                image_url:
+                  type: string
+                description:
+                  type: string
+    put:
+      summary: update item
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                image_url:
+                  type: string
+                description:
+                  type: string
+              required:
+              - title
+              - image_url
+    delete:
+      summary: delete item
+      responses:
+        '200':
+          description: successful
+  "/api/v1/navigation_links":
+    get:
+      summary: links navigation
+      responses:
+        '200':
+          description: successful
+  "/api/v1/signup":
+    post:
+      summary: create registration
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/api/v1/reservations":
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Date:
+                  type: string
+                city:
+                  type: string
+                user_id:
+                  type: integer
+                item_id:
+                  type: integer
+              required:
+              - Date
+              - city
+              - user_id
+              - item_id
+  "/api/v1/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show reservation
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update reservation
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Date:
+                  type: string
+                city:
+                  type: string
+                user_id:
+                  type: integer
+                item_id:
+                  type: integer
+    put:
+      summary: update reservation
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Date:
+                  type: string
+                city:
+                  type: string
+                user_id:
+                  type: integer
+                item_id:
+                  type: integer
+              required:
+              - Date
+              - city
+              - user_id
+              - item_id
+    delete:
+      summary: delete reservation
+      responses:
+        '200':
+          description: successful
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3001/
