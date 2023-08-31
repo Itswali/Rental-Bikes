@@ -2,6 +2,7 @@ module Api
   module V1
     class ReservationsController < ApplicationController
       # GET /api/v1/reservations: Fetches all reservations.
+      protect_from_forgery with: :null_session
       def index
         user_id = params[:user_id]
         @reservations_info = Reservation.joins(:user, :item)
