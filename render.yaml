@@ -1,0 +1,18 @@
+databases:
+  - name: super-wheels
+    databaseName: super_wheels
+    user: super_wheels_user
+
+services:
+  - type: web
+    name: SuperWheels
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: super_wheels
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
