@@ -1,11 +1,11 @@
 databases:
-  - name: Super Wheels
+  - name: super-wheels
     databaseName: super_wheels
     user: super_wheels_user
 
 services:
   - type: web
-    name: Super Wheels
+    name: SuperWheels
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
