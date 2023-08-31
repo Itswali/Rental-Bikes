@@ -1,7 +1,7 @@
 databases:
-  - name: super-wheels
-    databaseName: super_wheels_npic
-    user: super_wheels_user
+  - name: Super Wheels Database
+    databaseName: super_wheels_database
+    user: super_wheels_database_user
 
 services:
   - type: web
