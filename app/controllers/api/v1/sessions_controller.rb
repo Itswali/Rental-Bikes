@@ -6,16 +6,15 @@ module Api
         user = User.find_by(email: params[:email])
 
         if user&.valid_password?(params[:password])
-          session[:user_id] = user.id # Set user session upon successful login
+          session[:user_id] = user.id
           render json: { message: 'Logged in successfully', user: }
         else
           render json: { error: 'Invalid email or password' }, status: :unprocessable_entity
         end
       end
 
-      # DELETE /api/v1/sessions: Destroys the user session (logout).
       def destroy
-        session.delete(:user_id) # Delete user session to log them out
+        session.delete(:user_id)
         render json: { message: 'Logged out successfully' }
       end
     end
