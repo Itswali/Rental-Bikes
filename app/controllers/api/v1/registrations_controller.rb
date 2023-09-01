@@ -6,7 +6,7 @@ module Api
         user = User.new(registration_params)
 
         if user.save
-          session[:user_id] = user.id # Set user session after successful registration
+          session[:user_id] = user.id
           render json: { message: 'User registered successfully', user: }
         else
           render json: { errors: user.errors.full_messages },
