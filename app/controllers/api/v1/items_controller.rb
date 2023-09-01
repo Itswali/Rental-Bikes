@@ -35,8 +35,6 @@ module Api
         ids = params[:ids].split(',')
         items = Item.where(id: ids)
 
-        # item = Item.find(params[:id])
-
         if items.destroy_all
           head :no_content
         else
