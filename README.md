@@ -50,7 +50,7 @@ Database: <a href="https://www.postgresql.org/">PostgreSQL</a></li>
 
 ### Live Demo <a name="live-demo"></a>
 
-Not yet available.
+[Live-Demo](https://supercarsrentals.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,7 +112,7 @@ rails server
 ### Kanban Board
 - Click [here](https://github.com/users/Itswali/projects/12/views/1) to see our kanban board
 - Below is the initial state of our kanban board
-  
+
   ![capstone kanban board](https://github.com/Itswali/Rental-Cars/assets/33374570/3bdd0cfa-16ba-4569-8f01-b07f4402cb91)
 
 - At the end of the project, there were still 4 members in this team.
