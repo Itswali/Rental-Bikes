@@ -11,7 +11,6 @@ module Api
         render json: ItemSerializer.new(item).serialized_json
       end
 
-      # POST /api/v1/items: Creates a new item.
       def create
         params[:user_id]
         item = Item.new(item_params)
