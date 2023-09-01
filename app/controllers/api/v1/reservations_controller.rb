@@ -1,7 +1,6 @@
 module Api
   module V1
     class ReservationsController < ApplicationController
-      # GET /api/v1/reservations: Fetches all reservations.
       protect_from_forgery with: :null_session
       def index
         user_id = params[:user_id]
@@ -17,7 +16,6 @@ module Api
         render json: @reservations_info, status: :ok
       end
 
-      # POST /api/v1/reservations: Creates a new reservation.
       def create
         reservation = Reservation.new(reservation_params)
         if reservation.save
