@@ -1,7 +1,6 @@
 module Api
   module V1
     class SessionsController < ApplicationController
-      # POST /api/v1/sessions: Creates a new user session (login).
       def create
         user = User.find_by(email: params[:email])
 
