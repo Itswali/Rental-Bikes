@@ -1,7 +1,6 @@
 module Api
   module V1
     class ItemsController < ApplicationController
-      # GET /api/v1/items: Fetches all items.
       def index
         items = Item.all
         render json: ItemSerializer.new(items).serialized_json
