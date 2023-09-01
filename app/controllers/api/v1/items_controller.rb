@@ -31,8 +31,6 @@ module Api
         end
       end
 
-      # DELETE /api/v1/items/:id: Deletes a specific item by ID.
-
       def destroy
         ids = params[:ids].split(',')
         items = Item.where(id: ids)
