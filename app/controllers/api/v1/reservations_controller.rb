@@ -25,7 +25,6 @@ module Api
         end
       end
 
-      # DELETE /api/v1/reservations/:id: Deletes a specific reservation by ID.
       def destroy
         reservation = Reservation.find(params[:id])
         if reservation.destroy
@@ -37,7 +36,6 @@ module Api
 
       private
 
-      # Defines the permitted parameters for creating a reservation.
       def reservation_params
         params.require(:reservation).permit(:Date, :city, :user_id, :item_id)
       end
