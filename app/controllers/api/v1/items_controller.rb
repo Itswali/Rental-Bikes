@@ -26,6 +26,7 @@ module Api
       end
 
       # PUT /api/v1/items/:id: Updates a specific item by ID.
+
       def update
         item = Item.find(params[:id])
         if item.update(item_params)
