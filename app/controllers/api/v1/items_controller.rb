@@ -6,7 +6,6 @@ module Api
         render json: ItemSerializer.new(items).serialized_json
       end
 
-      # GET /api/v1/items/:id: Fetches a specific item by ID.
       def show
         item = Item.find(params[:id])
         render json: ItemSerializer.new(item).serialized_json
