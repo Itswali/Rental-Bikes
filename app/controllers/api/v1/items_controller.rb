@@ -44,8 +44,6 @@ module Api
 
       private
 
-      # Defines the permitted parameters for creating or updating an item.
-
       def item_params
         params.require(:item).permit(:title, :image_url, :description)
       end
