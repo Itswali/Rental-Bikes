@@ -37,11 +37,13 @@ module Api
       end
 
       # DELETE /api/v1/items/:id: Deletes a specific item by ID.
+
       def destroy
         ids = params[:ids].split(',')
         items = Item.where(id: ids)
 
         # item = Item.find(params[:id])
+
         if items.destroy_all
           head :no_content
         else
@@ -52,6 +54,7 @@ module Api
       private
 
       # Defines the permitted parameters for creating or updating an item.
+
       def item_params
         params.require(:item).permit(:title, :image_url, :description)
       end
